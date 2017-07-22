@@ -21,7 +21,7 @@ public class MechShoot : MonoBehaviour {
     {
         if (Input.GetButtonDown("Jump"))
         {
-            Instantiate(varBullet, transform.position + transform.forward, transform.localRotation);
+            Instantiate(varBullet, transform.position + transform.forward, transform.rotation);
         }
 
         var mousePos = Input.mousePosition;
