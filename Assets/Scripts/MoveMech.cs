@@ -7,7 +7,6 @@ public class MoveMech : MonoBehaviour {
     public float Speed = 0;
     public float TurnSpeed = 0;
     public Vector3 TurnVector;
-    public float Translation;
     public Rigidbody rb;
     public MovementEnum ForwardDirection;
     public MovementEnum SidewaysDirection;
@@ -19,8 +18,8 @@ public class MoveMech : MonoBehaviour {
         Positive = 2
     }
 
-    public float[] ForwardSpeeds = new float[3] { 0, -5f, 5f};
-    public float[] SidewaysSpeeds = new float[3] { 0, -20f, 20f};
+    public float[] ForwardSpeeds;
+    public float[] SidewaysSpeeds;
 
     void Awake()
     {
@@ -33,8 +32,7 @@ public class MoveMech : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         Debug.Log(TurnSpeed);

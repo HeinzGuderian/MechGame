@@ -12,18 +12,10 @@ public class Rocket : MonoBehaviour {
     {
         birthTime = Time.time;
     }
-    // Use this for initialization
+
     void Start()
     {
-        //bullet kills itself after 3 seconds of existing
-        //Destroy(gameObject, 3.0f);
         rb = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       // transform.Translate(Vector3.forward * bulletSpeed * Time.deltaTime);
     }
 
     void OnCollisionEnter()
