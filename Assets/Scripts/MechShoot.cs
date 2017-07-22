@@ -9,6 +9,7 @@ public class MechShoot : MonoBehaviour {
     public Rigidbody rb;
     public Camera gunnerCam;
     public Transform MechParent;
+    public bool UseMouse = false;
 
     void Start()
     {
@@ -19,28 +20,24 @@ public class MechShoot : MonoBehaviour {
     
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1") || Input.GetButtonDown("FireJoyRight"))
         {
             Instantiate(varBullet, transform.position + transform.forward, transform.rotation);
         }
 
-        var mousePos = Input.mousePosition;
-        var screenPos = gunnerCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, gunnerCam.farClipPlane));// transform.localPosition.z - gunnerCam.transform.localPosition.z));
-        transform.LookAt(screenPos);
-        //transform.rotation.eulerAngles.z = Mathf.Atan2((screenPos.y - transform.position.y), (screenPos.x - transform.position.x)) * Mathf.Rad2Deg;
-    }
-
-    void FixedUpdate()
-    {
-        //Quaternion deltaRotation = Quaternion.Euler(TurnVector * Time.deltaTime);
-
-        var mousePos = Input.mousePosition;
-        var screenPos = gunnerCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.localPosition.z - gunnerCam.transform.localPosition.z));
-
-       // rb.MovePosition(new Vector3(MechParent.position.x, MechParent.position.y) + MechParent.forward * Time.deltaTime);
-       /* rb.rotation = Quaternion.Euler(rb.rotation.eulerAngles + new Vector3(LookRotationSpeed * -(screenPos.y - transform.position.y), 
-                                                                             LookRotationSpeed * (screenPos.x - transform.position.x), 0f) * Time.deltaTime) ;
-        rb.MoveRotation(rb.rotation); */
-
+        if(UseMouse)
+        {
+            var mousePos = Input.mousePosition;
+            var screenPos = gunnerCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, gunnerCam.farClipPlane));
+            transform.LookAt(screenPos);
+        }
+        
+        var controller2X = Input.GetAxis("Horizontal 2nd axis");
+        var controller2Y = Input.GetAxis("Vertical 2nd axis");
+        transform.Rotate(-controller2Y * LookRotationSpeed, controller2X * LookRotationSpeed, 0.0f);
+        
+        Quaternion q = transform.rotation;
+        q.eulerAngles = new Vector3(q.eulerAngles.x, q.eulerAngles.y, 0);
+        transform.rotation = q;
     }
 }

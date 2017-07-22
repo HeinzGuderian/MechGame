@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6498a847efbaab14b940c664be1e9289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookRotationSpeed: 30
+  LookRotationSpeed: 3
   rb: {fileID: 0}
   gunnerCam: {fileID: 0}
   MechParent: {fileID: 322089680}
@@ -676,7 +676,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!1 &1545138846
 GameObject:
