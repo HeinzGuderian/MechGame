@@ -8,6 +8,8 @@ public class MoveMech : MonoBehaviour {
     public float Speed = 10;
     public float TurnSpeed = 2;
     public float Translation;
+    public Rigidbody rb;
+
     /*public Animation ship_idle;
     public Animation ship_moveUp;
     public Animation ship_moveDown;
@@ -17,6 +19,7 @@ public class MoveMech : MonoBehaviour {
     {
         //tempPosition.translate = transform.translate;
         Translation = Input.GetAxis("Vertical") * Speed;
+        rb = GetComponent<Rigidbody>();
         //ship3danim = GetComponentInChildren<Animation>();
     }
 
@@ -48,5 +51,10 @@ public class MoveMech : MonoBehaviour {
         }
         */
 
+    }
+
+    void FixedUpdate()
+    {
+        rb.MovePosition(transform.position + transform.forward * Time.deltaTime);
     }
 }
