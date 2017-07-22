@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4498225, g: 0.49989033, b: 0.57559234, a: 1}
+  m_IndirectSpecularColor: {r: 0.4498229, g: 0.49989152, b: 0.57559305, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ Camera:
   m_GameObject: {fileID: 999852461}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.50756603, g: 0.722, b: 0.517918, a: 0.553}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -547,7 +547,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294966985
+    m_Bits: 1
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 9a9e8b93f435647e19f058135f806786, type: 2}
   m_TargetDisplay: 0
