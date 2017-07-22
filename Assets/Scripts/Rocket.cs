@@ -28,6 +28,6 @@ public class Rocket : MonoBehaviour {
 
     void FixedUpdate()
     {
-        rb.MovePosition(transform.position + transform.forward * bulletSpeed * Time.deltaTime);
+        rb.MovePosition(transform.localPosition + transform.forward * bulletSpeed * Time.deltaTime);
     }
 }

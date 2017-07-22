@@ -10,6 +10,7 @@ public class MoveMech : MonoBehaviour {
     public Rigidbody rb;
     public MovementEnum ForwardDirection;
     public MovementEnum SidewaysDirection;
+    public float LookRotationSpeed = 1f;
 
     public enum MovementEnum
     {
@@ -77,5 +78,7 @@ public class MoveMech : MonoBehaviour {
         rb.MoveRotation(rb.rotation * deltaRotation);
 
         rb.MovePosition(transform.position + transform.forward * Speed * Time.deltaTime);
+
+        //rb.rotation = Quaternion.Euler(rb.rotation.eulerAngles + new Vector3(LookRotationSpeed * -Input.GetAxis("Mouse Y"), LookRotationSpeed * -Input.GetAxis("Mouse X"), 0f));
     }
 }
