@@ -3,58 +3,79 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveMech : MonoBehaviour {
-
-    //private Transform tempPosition;
-    public float Speed = 10;
-    public float TurnSpeed = 2;
+    
+    public float Speed = 0;
+    public float TurnSpeed = 0;
+    public Vector3 TurnVector;
     public float Translation;
     public Rigidbody rb;
+    public MovementEnum ForwardDirection;
+    public MovementEnum SidewaysDirection;
 
-    /*public Animation ship_idle;
-    public Animation ship_moveUp;
-    public Animation ship_moveDown;
-    public Animation ship3danim; */
-    // Use this for initialization
+    public enum MovementEnum
+    {
+        Neutral = 0,
+        Minus = 1,
+        Positive = 2
+    }
+
+    public float[] ForwardSpeeds = new float[3] { 0, -5f, 5f};
+    public float[] SidewaysSpeeds = new float[3] { 0, -20f, 20f};
+
+    void Awake()
+    {
+        ForwardSpeeds = new float[3] { 0, -5f, 5f };
+        SidewaysSpeeds = new float[3] { 0, -20f, 20f };
+        TurnVector = new Vector3(0f, 0f, 0f);
+    }
+
     void Start()
     {
-        //tempPosition.translate = transform.translate;
-        Translation = Input.GetAxis("Vertical") * Speed;
         rb = GetComponent<Rigidbody>();
-        //ship3danim = GetComponentInChildren<Animation>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Turns the mech
-        transform.Rotate(0.0f, Input.GetAxis("Horizontal") * TurnSpeed, 0.0f);
-        //moves the ship: takes vertical axis input, multipies with delta time, adjusts player position accordingly
-        Translation = Input.GetAxis("Vertical") * Speed * Time.deltaTime;
-        transform.Translate(0, 0, Translation);
-        /*
-        if (Input.GetKeyDown("down") || Input.GetKeyDown("s"))
+        var newSidewaysDirection= DetermineMovementDirection("Horizontal");
+        if (HasMovemnetDirectionChanged(SidewaysDirection, newSidewaysDirection))
         {
-            //ship_moveDown.Play();
-            //blend from current playing animation to anim_moveDown
-            ship3danim.Blend("anim_shipMoveDown");
 
-            //Debug.Log("down pressed");
-        }
-        else if (Input.GetKeyDown("up") || Input.GetKeyDown("w"))
-        {
-            //blend from current playing animation to anim_moveUp
-            ship3danim.Blend("anim_shipMoveUp");
-        }
-        else if (Input.GetKeyUp("down") || Input.GetKeyUp("s") || Input.GetKeyUp("up") || Input.GetKeyUp("w"))
-        {
-            ship3danim.Play("anim_shipIdle");
-        }
-        */
+            Debug.Log(newSidewaysDirection);
+            TurnSpeed = SidewaysSpeeds[(int)newSidewaysDirection];
+            TurnVector.Set(0, TurnSpeed, 0);
 
+            Debug.Log(TurnSpeed);
+        }
+
+        var newForwardDirection = DetermineMovementDirection("Vertical");
+        if (HasMovemnetDirectionChanged(ForwardDirection, newForwardDirection))
+            Speed = ForwardSpeeds[(int)newForwardDirection];
+    }
+
+    private MovementEnum DetermineMovementDirection(string axisName)
+    {
+        MovementEnum newDirection;
+        var axisFloat = Input.GetAxis(axisName);
+        if (axisFloat > 0)
+            newDirection = MovementEnum.Positive;
+        else if (axisFloat < 0)
+            newDirection = MovementEnum.Minus;
+        else
+            newDirection = MovementEnum.Neutral;
+        return newDirection;
+    }
+
+    private bool HasMovemnetDirectionChanged(MovementEnum oldM, MovementEnum newM)
+    {
+        return oldM != newM;
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(transform.position + transform.forward * Time.deltaTime);
+        Quaternion deltaRotation = Quaternion.Euler(TurnVector * Time.deltaTime);
+        rb.MoveRotation(rb.rotation * deltaRotation);
+
+        rb.MovePosition(transform.position + transform.forward * Speed * Time.deltaTime);
     }
 }
