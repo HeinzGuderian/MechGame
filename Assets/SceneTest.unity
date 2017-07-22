@@ -440,6 +440,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   gunnerCam: {fileID: 0}
   MechParent: {fileID: 0}
+  UseMouse: 0
 --- !u!54 &322089686
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -612,6 +613,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   gunnerCam: {fileID: 0}
   MechParent: {fileID: 322089680}
+  UseMouse: 0
 --- !u!23 &1473767092
 MeshRenderer:
   m_ObjectHideFlags: 0
