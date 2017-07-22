@@ -27,7 +27,7 @@ public class MoveMech : MonoBehaviour {
     void Update()
     {
         // Turns the mech
-        transform.Rotate(0.0f, -Input.GetAxis("Horizontal") * TurnSpeed, 0.0f);
+        transform.Rotate(0.0f, Input.GetAxis("Horizontal") * TurnSpeed, 0.0f);
         //moves the ship: takes vertical axis input, multipies with delta time, adjusts player position accordingly
         Translation = Input.GetAxis("Vertical") * Speed * Time.deltaTime;
         transform.Translate(0, 0, Translation);
