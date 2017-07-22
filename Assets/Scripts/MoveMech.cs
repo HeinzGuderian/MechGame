@@ -37,16 +37,22 @@ public class MoveMech : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(TurnSpeed);
         var newSidewaysDirection= DetermineMovementDirection("Horizontal");
+        Debug.Log(newSidewaysDirection);
         if (HasMovemnetDirectionChanged(SidewaysDirection, newSidewaysDirection))
         {
+            SidewaysDirection = newSidewaysDirection;
             TurnSpeed = SidewaysSpeeds[(int)newSidewaysDirection];
             TurnVector.Set(0, TurnSpeed, 0);
         }
 
         var newForwardDirection = DetermineMovementDirection("Vertical");
         if (HasMovemnetDirectionChanged(ForwardDirection, newForwardDirection))
+        {
+            ForwardDirection = newForwardDirection;
             Speed = ForwardSpeeds[(int)newForwardDirection];
+        }
     }
 
     private MovementEnum DetermineMovementDirection(string axisName)
