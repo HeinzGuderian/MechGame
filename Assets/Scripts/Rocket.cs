@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rocket : MonoBehaviour {
 
     private float birthTime = 0f;
-    public float bulletSpeed = 20f;
+    public float bulletSpeed = 40f;
     public Rigidbody rb;
 
     void Awake()
