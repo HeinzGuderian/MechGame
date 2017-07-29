@@ -20,24 +20,34 @@ public class MechShoot : MonoBehaviour {
     
     void Update()
     {
-        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1") || Input.GetButtonDown("FireJoyRight"))
-        {
-            Instantiate(varBullet, transform.position + transform.forward, transform.rotation);
-        }
-
         if(UseMouse)
         {
+            if (Input.GetButtonDown("FireMouse1"))
+            {
+                FireMainGun();
+            }
             var mousePos = Input.mousePosition;
             var screenPos = gunnerCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, gunnerCam.farClipPlane));
             transform.LookAt(screenPos);
         }
-        
-        var controller2X = Input.GetAxis("Horizontal 2nd axis");
-        var controller2Y = Input.GetAxis("Vertical 2nd axis");
-        transform.Rotate(-controller2Y * LookRotationSpeed, controller2X * LookRotationSpeed, 0.0f);
+        else
+        {
+            if (Input.GetButtonDown("FireJoy360A") || Input.GetButtonDown("FireJoy360Right"))
+            {
+                FireMainGun();
+            }
+            var controller2X = Input.GetAxis("Horizontal 2nd axis");
+            var controller2Y = Input.GetAxis("Vertical 2nd axis");
+            transform.Rotate(-controller2Y * LookRotationSpeed, controller2X * LookRotationSpeed, 0.0f);
+        }
         
         Quaternion q = transform.rotation;
         q.eulerAngles = new Vector3(q.eulerAngles.x, q.eulerAngles.y, 0);
         transform.rotation = q;
+    }
+
+    public void FireMainGun()
+    {
+        Instantiate(varBullet, transform.position + transform.forward, transform.rotation);
     }
 }
