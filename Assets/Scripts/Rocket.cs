@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour {
 
-    private float birthTime = 0f;
+//    private float birthTime = 0f;
     public float bulletSpeed = 40f;
     public Rigidbody rb;
 
     void Awake()
     {
-        birthTime = Time.time;
+//        birthTime = Time.time;
     }
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Destroy(gameObject, 30f);
     }
 
     void OnCollisionEnter()
