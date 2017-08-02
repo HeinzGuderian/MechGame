@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour {
 
-//    private float birthTime = 0f;
+    //    private float birthTime = 0f;
+    public int Damage = 10;
     public float bulletSpeed = 40f;
     public Rigidbody rb;
 
@@ -19,11 +20,14 @@ public class Rocket : MonoBehaviour {
         Destroy(gameObject, 30f);
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision col)
     {
-        //Bullet collides with anything, print it
-        Debug.Log("Bullet collides with something. Destroys self.");
-        //destroys itself
+        GameObject hitGo = col.gameObject;
+        IHealth hitGoHealth = hitGo.GetComponent<IHealth>();
+        if(hitGoHealth != null)
+        {
+            hitGoHealth.DoDamage(Damage);
+        }
         Destroy(gameObject, 0.001f);
     }
 
@@ -31,4 +35,5 @@ public class Rocket : MonoBehaviour {
     {
         rb.MovePosition(transform.localPosition + transform.forward * bulletSpeed * Time.deltaTime);
     }
+    
 }
