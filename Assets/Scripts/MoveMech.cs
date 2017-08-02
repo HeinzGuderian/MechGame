@@ -36,9 +36,7 @@ public class MoveMech : MonoBehaviour {
     
     void Update()
     {
-        Debug.Log(TurnSpeed);
         var newSidewaysDirection= DetermineMovementDirection("Horizontal");
-        Debug.Log(newSidewaysDirection);
         if (HasMovemnetDirectionChanged(SidewaysDirection, newSidewaysDirection))
         {
             SidewaysDirection = newSidewaysDirection;
