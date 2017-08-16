@@ -335,6 +335,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 65763143942759468, guid: 0cea77a2a1a2db34684c3bab20011966,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cea77a2a1a2db34684c3bab20011966, type: 2}
   m_IsPrefabParent: 0
@@ -846,9 +851,6 @@ GameObject:
   m_Component:
   - component: {fileID: 999852462}
   - component: {fileID: 999852466}
-  - component: {fileID: 999852465}
-  - component: {fileID: 999852464}
-  - component: {fileID: 999852463}
   - component: {fileID: 999852467}
   m_Layer: 0
   m_Name: minimapCamera
@@ -871,30 +873,6 @@ Transform:
   m_Father: {fileID: 322089680}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &999852463
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 81031864354954426, guid: 6ae6bad03cc9fc744b25829443fc4439,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 999852461}
-  m_Enabled: 0
---- !u!92 &999852464
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 92188984132897104, guid: 6ae6bad03cc9fc744b25829443fc4439,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 999852461}
-  m_Enabled: 0
---- !u!124 &999852465
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 124591363407655258, guid: 6ae6bad03cc9fc744b25829443fc4439,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 999852461}
-  m_Enabled: 0
 --- !u!20 &999852466
 Camera:
   m_ObjectHideFlags: 0
