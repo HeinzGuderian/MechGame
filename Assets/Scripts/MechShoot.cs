@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MechShoot : MonoBehaviour {
     
     Object varBullet;
     Object homingRocket;
+    Object selectedWeapon;
+    List<Object> mechWeapons = new List<Object>();
     public float LookRotationSpeed = 1f;
     public Rigidbody rb;
     public Camera gunnerCam;
@@ -15,7 +18,10 @@ public class MechShoot : MonoBehaviour {
 
     void Start() {
         varBullet = Resources.Load("Rocket");
+        mechWeapons.Add(varBullet);
         homingRocket = Resources.Load("HomingRocket");
+        mechWeapons.Add(homingRocket);
+        selectedWeapon = mechWeapons.First();
         rb = GetComponent<Rigidbody>();
         gunnerCam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
@@ -28,6 +34,8 @@ public class MechShoot : MonoBehaviour {
             else if(Input.GetButtonDown("FireMouse2")) {
                 LockTarget();
             }
+            if (Input.GetButtonDown("Weapon1")) selectedWeapon = mechWeapons[0];
+            if (Input.GetButtonDown("Weapon2")) selectedWeapon = mechWeapons[1];
             var mousePos = Input.mousePosition;
             var screenPos = gunnerCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, gunnerCam.farClipPlane));
             transform.LookAt(screenPos);
@@ -59,8 +67,9 @@ public class MechShoot : MonoBehaviour {
     }
 
     public void FireMainGun() {
-        GameObject newRocket = Instantiate(homingRocket, transform.position + transform.forward, transform.rotation) as GameObject;
-        if(CurrentTarget != null)
-            newRocket.GetComponent<HomingRocket>().SetTarget(CurrentTarget);
+        GameObject newRocket = Instantiate(selectedWeapon, transform.position + transform.forward, transform.rotation) as GameObject;
+        ILockTarget lockTarget = newRocket.GetComponent<ILockTarget>();
+        if (CurrentTarget != null && lockTarget != null)
+            lockTarget.SetTarget(CurrentTarget);
     }
 }

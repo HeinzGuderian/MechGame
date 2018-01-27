@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomingRocket : WeaponBase {
+public class HomingRocket : WeaponBase, ILockTarget {
     private Transform Target;
     public float force = 0.1f;
     private bool hasRecievedTarget = false;
