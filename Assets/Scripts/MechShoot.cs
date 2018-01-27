@@ -8,6 +8,7 @@ public class MechShoot : MonoBehaviour {
     Object varBullet;
     Object homingRocket;
     Object selectedWeapon;
+    WeaponBase selectedWeaponBase;
     List<Object> mechWeapons = new List<Object>();
     public float LookRotationSpeed = 1f;
     public Rigidbody rb;
@@ -15,6 +16,7 @@ public class MechShoot : MonoBehaviour {
     public Transform MechParent;
     public Transform CurrentTarget;
     public bool UseMouse = false;
+    float nextFire = 0.0f;
 
     void Start() {
         varBullet = Resources.Load("Rocket");
@@ -22,20 +24,23 @@ public class MechShoot : MonoBehaviour {
         homingRocket = Resources.Load("HomingRocket");
         mechWeapons.Add(homingRocket);
         selectedWeapon = mechWeapons.First();
+        selectedWeaponBase = (selectedWeapon as GameObject).GetComponent<WeaponBase>();
         rb = GetComponent<Rigidbody>();
         gunnerCam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
     
     void Update() {
         if(UseMouse) {
-            if (Input.GetButtonDown("FireMouse1")) {
+            if (Input.GetButton("FireMouse1") && Time.time > nextFire) {
                 FireMainGun();
+                nextFire = Time.time + selectedWeaponBase.RateOfFire;
             }
             else if(Input.GetButtonDown("FireMouse2")) {
                 LockTarget();
             }
             if (Input.GetButtonDown("Weapon1")) selectedWeapon = mechWeapons[0];
             if (Input.GetButtonDown("Weapon2")) selectedWeapon = mechWeapons[1];
+            selectedWeaponBase = (selectedWeapon as GameObject).GetComponent<WeaponBase>();
             var mousePos = Input.mousePosition;
             var screenPos = gunnerCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, gunnerCam.farClipPlane));
             transform.LookAt(screenPos);

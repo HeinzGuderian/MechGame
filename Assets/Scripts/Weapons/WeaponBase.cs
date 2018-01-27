@@ -7,6 +7,7 @@ public abstract class WeaponBase : MonoBehaviour {
     public float TravelSpeed = 10f;
     public float SelfDestructFloatTime = 30f;
     protected Rigidbody rb;
+    public float RateOfFire = 1f;
 
     void Start()
     {

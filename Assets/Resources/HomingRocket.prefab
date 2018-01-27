@@ -152,10 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ba4356c4766f84bb6ab425b99b646c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 30
   TravelSpeed: 10
   SelfDestructFloatTime: 30
-  Target: {fileID: 0}
+  RateOfFire: 5
   force: 0.1
 --- !u!198 &198583086342236892
 ParticleSystem:
