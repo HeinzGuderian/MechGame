@@ -1,0 +1,105 @@
+Pilot Gameplay:
+	Drive Mech (wasd keys or joypad sticks)
+	Aim and fire close-range weapons (chainsword, flechette etc)
+	Maneuver Mech for better use of long-range weapons handled by Navigator
+	Deploy short-range countermeasures (smoke, chaff etc)
+For Pilot there should most of the time be something to shoot at, to take cover from, and to maneuver around. MechAssault or Gears of War is a good enough marker for Pilot gameplay.
+Also, not all close-range weapons are availiable at the same time. Pilot can cycle through the ones that are powered on and use them, but the Navigator controls what weapons are powered on, where the engine power is going, and takes orders from the Pilot to do that.
+Pilot gameplay can be similar to 3rd person shooter Warhammer 40k Space Marine?
+
+Navigator Gameplay:
+	Aim and fire long-ranged weapons
+	Track and counter enemy long-range weapons
+	Track and mark targets for Pilot
+	Plot navigation route for Pilot (look at maps and see where they could go)
+	Leave his NavChair and fix stuff inside the Mech that get broken (put out fires mostly), fix holes in hull so that unbreathable atmosphere won't enter.
+Navigator is playing more of an RTS/MOBA game, with targets appearing on radar screen, having to identify them, and receive info from the battlenet. Navigator uses mouse and keyboard on either 1 large screen that has different screen modes to show different things, or several small screens.
+
+Other control schemes: mouse gestures like in Maya?
+
+
+Level design:
+	Levels might have "blank spots" for the navigator, ie: areas for which there is no intel, the intel might be wrong, sensors are being interfered with, or fed false info.
+
+	Levels need to have areas where both Pilot and Navigator have to act more, not only focusing on one of them.
+
+	Cityscapes with several levels to walk on (Hivecities)
+	Forested areas	(Jungleworlds, Ice worlds)
+	Massive industrial areas (Forgeworlds?)
+	Lots of inspiration from 40k ^
+
+Enemies:
+	Enemy Mechs
+		Come in several sizes. Both larger and smaller than the player Mech.
+	Tanks (go to 40k for size comparison too)
+		Small and fast (Leman-Russ like) medium sized (Predator tank) to heavy (Baneblade/Landraider)
+	Artillery
+		Off-map (giant superguns), rocket artillery, giant guns on tracked vehicles
+	Aircraft
+		Hovercraft, bombers, fighters, large hoverships (SHIELD helicarrier?)
+	Infantry - mostly dangerous since they scout your location. Not really a threat.
+
+	Drone Swarms: combination of cruise missile, depth charge and mine, or similar to Spider Mines in Starcraft, these will attack when triggered.
+
+MECH SYSTEMS
+Pilot and Navigator controls different systems of the Mech. Making the right decisions for which systems to use when is important.
+POWER from the REACTOR is distributed between systems to turn them on or off. The reactor can power all systems at once, but only at a moderate level. Certain systems will benefit from getting more power, others not. COMMS and SENSORS will gain a range bonus when running with extra power. Energy WEAPONS (plasma/lasers/multimelta etc) will deal more damage when on extra power, and less damage when power is insufficient. MOVEMENT will be greatly impaired if not fully powered, and boosted if overpowered.
+
+Overpowering systems is not to be done constantly, since it wears them out. Certain systems will overheat and malfunction when overpowered for too long, such as energy weapons. Sensors might also provide bad readings when overpowered.
+
+	REACTOR
+		Reactor is the power plant of the Mech. It generates POWER which makes every other system go. Reactor can be overloaded temporarily to gain a POWER boost. It can also be shut down to make the Mech nearly invisible to enemy sensors. If the reactor is destroyed, so is the Mech.
+
+	MOVEMENT
+		Movement systems are the hydraulics and servos that make the Mech move and aim. The legs, arms, and torso will not move if the MOVEMENT system is unpowered. This means the mech will stand still. Or fall over, since it cannot retain balance.
+
+	LIFESUPP
+		Internal temperature, pressure, and air filtration for the Pilot and Navigator.
+		Water filter and cleaner.
+		Also lights in the cockpit.
+
+	WEAPONS
+		Mech close and long range weapons. Arm-mounted cannons and close combat weapon. Shoulder mounted cruise missiles.
+		The WEAPONS systems connect in some ways to the SENSORS: the Mech RADAR helps guide certain weapons, sch as the long-range missiles.
+
+		Plasma Gun - fires blobs of superheated plasma. Medium range, anti-everything.
+		Tesla Gun - projects a bolt of lightning at the target. Short-to-medium range.
+		Autocannon - large-caliber semi-automatic long range direct fire weapon. Capable of loading different ammunition (high-explosive anti-armor, bunker-buster, sabot)
+		Flamethrower - close-range weapon for smaller foes (tanks, dug-in infantry). Sprays sticky napalm.
+		Mortar - secondary function of the Autocannon. Can be angled up and given targeting data by Navigator to lob 
+		Melter Gun - close-range anti-armor weapon. Similar to a welding torch.
+		Gatling gun - automatic rotating gun. Incendiary or armor-piercing ammo.
+		Guided Missiles - several types: manual guidance, fire-and-forget etc. Navigator-controlled.
+		Mine Layer - drops anti-mech mines in front of the Mech, or behind it. Navigator-controlled.
+		MechSword (or similar) - powered massive sword that the Mech wields in one of it's hands. Needs both MOVEMENT and WEAPONS systems to be powered for use. Devastating against enemy Mechs in close range, but can also be used against structures such as bridges. 
+
+	SENSORS
+		These systems feed information to the Pilot and the Navigator, not to the COUNTERMEASURES systems.
+		Mech RADAR (can be configured to be both active and passive, help find enemy radars)
+		Infra-red cameras
+		Light amplification cameras (night vision)
+		Directional microphones
+		Long-range optical sensors
+		SatNav, (where possible)
+		Atmospheric sensors (electronic nose)
+
+	COMMS
+		Battlenet uplink - digital, encrypted
+		Local radio - analog, encrypted
+		Loudspeaker
+
+	COUNTER
+		These modules have their own built-in sensors, and don't depend on the SENSORS systems.
+		Chaff - aerodynamically shaped metallic shavings that scramble sensors.
+		Smoke - infra-red and visible spectrum visibility blocking smoke grenade launchers.
+		Anti-Missile system - similar to T-90 Shtora, autonomous turrets.
+		Flares - simple heat flares
+		Decoy Drones - project radio chatter, radar and heat signatures similar to a Mech. Useful against cruise missiles.
+
+	AUXILLARY
+		Auxillary power for reactor failure use.
+		Sprinklers, foam injectors and CO2 for putting out fires inside the mech.
+		HyperFoam - deploys to cover holes in the hull.
+		Emergency life support(breathable air tanks).
+		Ejector pod (inside cockpit)
+		Scout Drones - small Navigator-controlled drones that can move ahead of the mech and look around. Carry sensor equipment and can both transmit data back to the mech, or return to it and unload it, which is stealthier.

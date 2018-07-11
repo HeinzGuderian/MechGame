@@ -1,6 +1,7 @@
-﻿Shader "Custom/CharacterMoebius" {
+Shader "Custom/CharacterMoebius" {
 	Properties {
 		//att göra: hitta på nån pseudokod för hur detta ska ens fungera, sen koda. lol
+		// använd detail texture "moebius noise" multuplicerat in i 10% grått?
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_ShadowNoise ("Shadow Noise (RGB)", 2D) = "white"{}
