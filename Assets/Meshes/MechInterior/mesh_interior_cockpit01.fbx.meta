@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: 58b8b758b739fbd4bad4481a3a8b1446
+timeCreated: 1517074648
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: button_src
+    100002: chair
+    100004: chair1
+    100006: cockpit_walls
+    100008: indicator_HEALTH
+    100010: //RootNode
+    100012: pCube2
+    100014: pCube3
+    100016: pCube4
+    100018: pCube5
+    100020: polySurface1
+    100022: polySurface2
+    100024: pPlane2
+    100026: screen_PERISCOPE
+    100028: screen_TACTICAL
+    400000: button_src
+    400002: chair
+    400004: chair1
+    400006: cockpit_walls
+    400008: indicator_HEALTH
+    400010: //RootNode
+    400012: pCube2
+    400014: pCube3
+    400016: pCube4
+    400018: pCube5
+    400020: polySurface1
+    400022: polySurface2
+    400024: pPlane2
+    400026: screen_PERISCOPE
+    400028: screen_TACTICAL
+    2300000: button_src
+    2300002: chair
+    2300004: chair1
+    2300006: cockpit_walls
+    2300008: indicator_HEALTH
+    2300010: pCube2
+    2300012: pCube3
+    2300014: pCube5
+    2300016: polySurface1
+    2300018: polySurface2
+    2300020: pPlane2
+    2300022: screen_PERISCOPE
+    2300024: screen_TACTICAL
+    3300000: button_src
+    3300002: chair
+    3300004: chair1
+    3300006: cockpit_walls
+    3300008: indicator_HEALTH
+    3300010: pCube2
+    3300012: pCube3
+    3300014: pCube5
+    3300016: polySurface1
+    3300018: polySurface2
+    3300020: pPlane2
+    3300022: screen_PERISCOPE
+    3300024: screen_TACTICAL
+    4300000: chair
+    4300002: pCube3
+    4300004: pCube2
+    4300006: polySurface2
+    4300008: screen_TACTICAL
+    4300010: pCube5
+    4300012: button_src
+    4300014: polySurface1
+    4300016: screen_PERISCOPE
+    4300018: pPlane2
+    4300020: indicator_HEALTH
+    4300022: cockpit_walls
+    4300024: chair1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

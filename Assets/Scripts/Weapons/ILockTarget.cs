@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IWeapon {
-
-    void FireGun();
-
+public interface ILockTarget {
+    void SetTarget(Transform target);
 }
