@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MechEngine : MonoBehaviour {
 
+	AudioSource audioData;
+
 	public bool engineRunning;
 	public float throttleAmmount;
 	public float breakAmmount;
@@ -20,6 +22,8 @@ public class MechEngine : MonoBehaviour {
 	public float coolingValue; //how much each charge of coolant cools the engine.
 	public int coolantAmmount;
 
+	public float engineSoundVolume;
+
 	// Use this for initialization
 	void Start () {
 		coolantAmmount = 50;
@@ -31,6 +35,9 @@ public class MechEngine : MonoBehaviour {
 		powerMultiplier = 1f;
 		heatMultiplier = 1;
 		heatDissipation = 5;
+		engineSoundVolume = 0;
+
+		audioData = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -69,18 +76,24 @@ public class MechEngine : MonoBehaviour {
 		//tryck 5 för att sätta motorn till 100%
 		if (Input.GetKey(KeyCode.Alpha5) && engineRunning==true){Engine100Percent();}
 		//tryck 9 för att kyla motorn
-		if (Input.GetKey(KeyCode.Alpha9) &&engineRunning==true){EngineCoolantFlush();}
+		//if (Input.GetKey(KeyCode.Alpha9) &&engineRunning==true){EngineCoolantFlush();}
+
+		//Engine sound volume control based on RPM:
+		audioData.volume = currentRPM/101;
 	}
 
 	void EngineStart(){
 		//engine Running = true;
 		engineRunning=true;
 		setRPM=10;
+		audioData.Play(0);
+		Debug.Log("Engine Started, sound playing");
 	}
 	void EngineStop(){
 		//engineRunning = false;
 		engineRunning=false;
 		setRPM=0;
+		audioData.Stop();
 		//engine winds down to 0 RPM
 	}
 	void Engine25Percent(){
