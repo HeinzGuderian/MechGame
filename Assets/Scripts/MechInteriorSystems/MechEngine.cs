@@ -7,36 +7,25 @@ public class MechEngine : MonoBehaviour {
 	AudioSource audioData;
 
 	public bool engineRunning;
-	public float throttleAmmount;
-	public float breakAmmount;
-	public float setRPM;
+	public float throttleAmmount = 5;
+	public float breakAmmount = 5;
+	public float setRPM = 0;
 	public float currentRPM;
-	public float powerMultiplier;
-	public float heatMultiplier;
-	public float heatDissipation;
+	public float powerMultiplier = 1f;
+	public float heatMultiplier = 1;
+	public float heatDissipation = 5;
 
 	public float currentHeat;
 	public float maxHeat;
 
-	public float ventingAmmount;
-	public float coolingValue; //how much each charge of coolant cools the engine.
-	public int coolantAmmount;
+	public float ventingAmmount = 0;
+	public float coolingValue = 10; //how much each charge of coolant cools the engine.
+	public int coolantAmmount = 50;
 
-	public float engineSoundVolume;
+	public float engineSoundVolume = 0;
 
 	// Use this for initialization
 	void Start () {
-		coolantAmmount = 50;
-		coolingValue = 10;
-		setRPM = 0;
-		ventingAmmount = 0; //unvented = 0, with ventilation and cooling might be something else.
-		throttleAmmount = 5;
-		breakAmmount = 5;
-		powerMultiplier = 1f;
-		heatMultiplier = 1;
-		heatDissipation = 5;
-		engineSoundVolume = 0;
-
 		audioData = GetComponent<AudioSource>();
 	}
 	
@@ -68,13 +57,13 @@ public class MechEngine : MonoBehaviour {
 		//turn off engine if press 0 again:
 		if (Input.GetKey(KeyCode.Alpha0) && engineRunning==true){EngineStop();}
 		//tryck på 2 för att sätta motorn till 25%
-		if (Input.GetKey(KeyCode.Alpha2) && engineRunning==true){Engine25Percent();}
+		if (Input.GetKey(KeyCode.Alpha2) && engineRunning==true){ SetRPM(25);}
 		//tryck 3 för att sätta motorn till 50%
-		if (Input.GetKey(KeyCode.Alpha3) && engineRunning==true){Engine50Percent();}
+		if (Input.GetKey(KeyCode.Alpha3) && engineRunning==true){ SetRPM(50);}
 		//tryck 4 för att sätta motorn 75%
-		if (Input.GetKey(KeyCode.Alpha4) && engineRunning==true){Engine75Percent();}
+		if (Input.GetKey(KeyCode.Alpha4) && engineRunning==true){ SetRPM(75);}
 		//tryck 5 för att sätta motorn till 100%
-		if (Input.GetKey(KeyCode.Alpha5) && engineRunning==true){Engine100Percent();}
+		if (Input.GetKey(KeyCode.Alpha5) && engineRunning==true){ SetRPM(100);}
 		//tryck 9 för att kyla motorn
 		//if (Input.GetKey(KeyCode.Alpha9) &&engineRunning==true){EngineCoolantFlush();}
 
@@ -90,28 +79,14 @@ public class MechEngine : MonoBehaviour {
 		Debug.Log("Engine Started, sound playing");
 	}
 	void EngineStop(){
-		//engineRunning = false;
 		engineRunning=false;
 		setRPM=0;
 		audioData.Stop();
 		//engine winds down to 0 RPM
 	}
-	void Engine25Percent(){
-		//Sets Engine effect to 25%
-		setRPM = 25;
-	}
-	void Engine50Percent(){
-		//Sets Engine effect to 50%
-		setRPM = 50;
-	}
-	void Engine75Percent(){
-		//Sets engine effect to 75%
-		setRPM = 75;
-	}
-	void Engine100Percent(){
-		//sets engine effect to 100%
-		setRPM = 100;
-	}
+    void SetRPM(int newRPM) {
+        setRPM = newRPM;
+    }
 	void EngineCoolantFlush(){
 		coolantAmmount--;
 		currentHeat = currentHeat - coolantAmmount;
