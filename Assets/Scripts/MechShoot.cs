@@ -18,7 +18,7 @@ public class MechShoot : MonoBehaviour {
     public bool UseMouse = false;
     float nextFire = 0.0f;
 
-    void Start() {
+    void Awake() {
         varBullet = Resources.Load("Rocket");
         mechWeapons.Add(varBullet);
         homingRocket = Resources.Load("HomingRocket");
@@ -26,7 +26,7 @@ public class MechShoot : MonoBehaviour {
         selectedWeapon = mechWeapons.First();
         selectedWeaponBase = (selectedWeapon as GameObject).GetComponent<WeaponBase>();
         rb = GetComponent<Rigidbody>();
-        gunnerCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        gunnerCam = transform.parent.gameObject.GetComponentInChildren<Camera>();
     }
     
     void Update() {
