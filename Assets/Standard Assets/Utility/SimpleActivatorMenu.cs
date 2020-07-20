@@ -7,6 +7,8 @@ namespace UnityStandardAssets.Utility
     {
         // An incredibly simple menu which, when given references
         // to gameobjects in the scene
+        //This code is not to be used. File only kept for now.
+        /*
         public GUIText camSwitchButton;
         public GameObject[] objects;
 
@@ -34,5 +36,5 @@ namespace UnityStandardAssets.Utility
             m_CurrentActiveObject = nextactiveobject;
             camSwitchButton.text = objects[m_CurrentActiveObject].name;
         }
-    }
+    */}
 }
